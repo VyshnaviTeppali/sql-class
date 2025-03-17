@@ -75,11 +75,38 @@
 -- 	end loop;
 -- end;
 
-DECLARE
-    x number:=1;
-BEGIN
-    while x<5 LOOP
-       dbms_output.put_line(x);
-       x:=x+1;
-       end loop;
-end;
+-- DECLARE
+--     x number:=1;
+-- BEGIN
+--     while x<5 LOOP
+--        dbms_output.put_line(x);
+--        x:=x+1;
+--        end loop;
+-- end;
+
+-- exception handling when employee_id is not found
+-- DECLARE
+--     emp_id number;
+--     emp_name varchar2(10);
+-- BEGIN
+--     begin
+--         select employee_id,first_name into emp_id,emp_name from hr.employees
+--         where employee_id=1001;
+--         dbms_output.put_line('emp_id'||' '||emp_id);
+--     exception
+--         when no_data_found then
+--         dbms_output.put_line('no data found with this employee_id');
+--     end;
+-- end;
+
+-- fetching employee name based on min_emp_id using sub query
+-- DECLARE
+--     emp_id number(10);
+--     emp_name varchar2(20);
+-- BEGIN
+--     select employee_id,first_name into emp_id,emp_name
+--     from hr.employees 
+--     where employee_id =(select min(employee_id) from hr.employees);
+--     dbms_output.put_line('emp_id '||emp_id||' emp_name '||emp_name);
+-- end;
+
