@@ -20,24 +20,18 @@
 -- full outer join hr.departments d on e.department_id=e.department_id
 
 -- 5.retrieve employees who do not belong to any department using left join with null check or left outer join
--- select e.employee_id,e.first_name
+-- select e.employee,e.first_name
 -- from hr.employees e
 -- left join hr.departments d on e.department_id=d.DEPARTMENT_ID
 -- where d.department_id is null
 
--- 6.etrieve departments that have no employees using right join with null check or right outer join
+-- 6.retrieve departments that have no emplyees using right outer join with null check
 -- select d.department_id,d.department_name
 -- from hr.employees e
 -- right join hr.departments d on e.department_id=d.DEPARTMENT_ID
 -- where e.employee_id is null
 
--- 7.retrieve employees along with their manager names using self join
-
--- ###Doubt
--- select e.employee_id,e.employee_name,m.employee_name as manager_name
--- from hr.employees e
--- left join hr.employees m on e.manager_id=m.manager_id
-
+-- 7. Doubt
 -- 8.retrieve employees along with job title suing inner join
 -- select e.employee_id,e.first_name,j.job_title
 -- from hr.employees e
@@ -50,8 +44,24 @@
 -- inner join hr.departments d on e.department_id=d.DEPARTMENT_ID
 -- inner join hr.locations l on d.location_id=l.location_id
 
--- 10.retrieve employees who have not assigned to any project using left join
+-- 10. Doubt
+-- retrieve employees who have not assigned to any project using left join
 -- select e.employee_id,e.first_name
 -- from hr.employees e
--- left join 
-select * from hr.jobs
+-- left join
+
+-- 20.retrieve employees who earn more than their departments avg salary using inner join and a subquery
+-- select e.employee_id,e.first_name,e.salary
+-- from hr.EMPLOYEES e
+-- inner join hr.departments d on e.department_id=d.DEPARTMENT_ID
+-- where e.salary >(select avg(salary) from hr.employees where department_id=e.department_id)
+
+-- 24.retrieve employees who work in a city where their department is located using inner join
+-- select e.employee_id,e.first_name,d.department_id,l.city
+-- from hr.employees e
+-- inner join hr.departments d on d.department_id = e.DEPARTMENT_ID
+-- inner join hr.locations l on d.location_id=l.location_id
+
+-- 27.retrieve employees and their departments names where employees belong to a specific region using inner join
+select * from hr.locations
+
